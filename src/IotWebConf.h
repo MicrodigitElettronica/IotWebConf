@@ -501,6 +501,10 @@ public:
   {
     return &this->_systemParameters;
   };
+  ParameterGroup* getCustomParameterGroups()
+  {
+    return &this->_customParameterGroups;
+  };
   Parameter* getThingNameParameter()
   {
     return &this->_thingNameParameter;
@@ -578,9 +582,9 @@ private:
   ParameterGroup _hiddenParameters = ParameterGroup("hidden");
   WifiParameterGroup _wifiParameters = WifiParameterGroup("iwcWifi0");
   TextParameter _thingNameParameter =
-    TextParameter("Thing name", "iwcThingName", this->_thingName, IOTWEBCONF_WORD_LEN);
+    TextParameter("MD240 name", "iwcThingName", this->_thingName, IOTWEBCONF_WORD_LEN);
   PasswordParameter _apPasswordParameter =
-    PasswordParameter("AP password", "iwcApPassword", this->_apPassword, IOTWEBCONF_PASSWORD_LEN);
+    PasswordParameter("AP password (user is 'admin')", "iwcApPassword", this->_apPassword, IOTWEBCONF_PASSWORD_LEN);
   NumberParameter _apTimeoutParameter =
     NumberParameter("Startup delay (seconds)", "iwcApTimeout", this->_apTimeoutStr, IOTWEBCONF_WORD_LEN, IOTWEBCONF_DEFAULT_AP_MODE_TIMEOUT_SECS, nullptr, "min='1' max='600'");
   char _thingName[IOTWEBCONF_WORD_LEN];

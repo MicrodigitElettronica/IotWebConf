@@ -364,17 +364,17 @@ void IotWebConf::handleConfig(WebRequestWrapper* webRequestWrapper)
     page += "Configuration saved. ";
     if (this->_apPassword[0] == '\0')
     {
-      page += F("You must change the default AP password to continue. Return "
+      page += F("You must change the default AP password to continue.<br><br>Return "
                 "to <a href=''>configuration page</a>.");
     }
     else if (this->_wifiParameters._wifiSsid[0] == '\0')
     {
-      page += F("You must provide the local wifi settings to continue. Return "
+      page += F("Please, note that you must provide the local wifi settings if you want to work in STATION mode.<br><br>Return "
                 "to <a href=''>configuration page</a>.");
     }
     else if (this->_state == NotConfigured)
     {
-      page += F("Please disconnect from WiFi AP to continue!");
+      page += F("Please, disconnect from WiFi AP and reboot the board to continue!");
     }
     else
     {
